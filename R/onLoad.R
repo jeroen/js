@@ -3,9 +3,8 @@ ct <- new_context()
 
 .onLoad <- function(libname, pkgname){
   ct$reset()
-  ct$source(system.file("lib/beautify.js", package = pkgname))
-  ct$source(system.file("lib/uglify.js", package = pkgname))
-  ct$source(system.file("lib/jade.js", package = pkgname))
-  ct$source(system.file("lib/minimist.js", package = pkgname))
-  ct$source(system.file("lib/custom.js", package = pkgname))
+  libs <- list.files(system.file("lib", package = pkgname), full.names = TRUE, pattern="*.js");
+  lapply(libs, function(path){
+    ct$source(path)
+  })
 }

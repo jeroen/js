@@ -3,6 +3,7 @@
 #' Simple wrapper for \code{ct$validate} in \code{\link{V8}}.
 #'
 #' @export
+#' @name validate
 #' @param text character vector with JavaScript
 #' @examples validate_js("function foo(x){2*x}") #TRUE
 #' validate_js("foo = function(x){2*x}") #TRUE
