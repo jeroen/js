@@ -2,11 +2,30 @@
 % Please edit documentation in R/uglify.R
 \name{uglify}
 \alias{uglify}
+\alias{uglify_compress}
+\alias{uglify_parse}
 \title{Uglify or Prettify JavaScript}
 \usage{
-uglify(text)
+uglify_parse(text)
+
+uglify_compress(text, opts = list())
+}
+\arguments{
+\item{text}{a character vector with JavaScript code}
+
+\item{opts}{a list of options passed to the compressor.}
 }
 \description{
-Beautify functions automatically indent code.
+\href{https://www.npmjs.com/package/uglify-js}{UglifyJS} is a JavaScript
+compressor/minifier written in JavaScript. It also contains tools that allow one
+to automate working with JavaScript code.
+}
+\examples{
+code <- "function test(x, y){ x = x || 1; y = y || 1; return x*y;}"
+uglify_compress(code, list(warnings = TRUE))
+
+# Get the full AST.
+code <- "function sum(x, y){ return x + y;}"
+ast <- uglify_parse(code)
 }
 

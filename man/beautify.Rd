@@ -21,11 +21,13 @@ beautify_css(text, indent_size = 4, ...)
 \item{...}{additional options, see \href{https://www.npmjs.com/package/js-beautify#optionsy}{npm docs}.}
 }
 \description{
-Beautify functions automatically indent code.
+A set of functions to fix indentation and linebreaks within js/html/css code.
+The \code{\link{uglify_minify}} function provides a more aggressive code optimizer for JavaScript.
 }
 \examples{
-test <- "function(x,y){x=x||1;y=y||1;return x+y;}"
+test <- "function test(x,y){x=x||1;y=y||1;return x+y;}"
 cat(beautify_js(test))
+cat(uglify_compress(test))
 }
 \references{
 Documentation of js-beautify on npm: \url{https://www.npmjs.com/package/js-beautify}
