@@ -1,3 +1,4 @@
+/* Extra functions by Jeroen */
 UglifyJS.optimize = function(code, opts){
   var ast = UglifyJS.parse(code);
   var compressor = UglifyJS.Compressor(opts);
