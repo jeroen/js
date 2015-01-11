@@ -8,25 +8,26 @@
 #' @name uglify
 #' @export
 #' @param text a character vector with JavaScript code
-#' @param opts a list of options passed to the compressor.
+#' @param beautify prettify (instead of minify) code
+#' @param ... additional arguments for the \href{http://lisperator.net/uglifyjs/compress}{optimizer}
+#'  or \href{http://lisperator.net/uglifyjs/codegen}{generator}.
+#' @references UglifyJS2 Documentation: \url{http://lisperator.net/uglifyjs/}.
 #' @examples code <- "function test(x, y){ x = x || 1; y = y || 1; return x*y;}"
-#' uglify_compress(code, list(warnings = TRUE))
-#'
-#' # Get the full AST.
-#' code <- "function sum(x, y){ return x + y;}"
-#' ast <- uglify_parse(code)
-#'
-uglify_parse <- function(text){
+#' cat(uglify_optimize(code))
+#' cat(uglify_reformat(code, beautify = TRUE, indent_level = 2))
+uglify_reformat <- function(text, beautify = FALSE, ...){
   text <- paste(text, collapse = "\n")
   stopifnot(ct$validate(text))
-  ct$call("UglifyJS.parse", text)
+  opts <- list(...);
+  opts$beautify = beautify;
+  ct$call("UglifyJS.reformat", text, opts)
 }
-
 
 #' @rdname uglify
 #' @export
-uglify_compress <- function(text, opts = list()){
+uglify_optimize <- function(text, ...){
   text <- paste(text, collapse = "\n")
   stopifnot(ct$validate(text))
-  ct$call("UglifyJS.minify", text, opts)
+  opts <- list(...)
+  ct$call("UglifyJS.optimize", text, opts)
 }

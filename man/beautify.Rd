@@ -22,12 +22,13 @@ beautify_css(text, indent_size = 4, ...)
 }
 \description{
 A set of functions to fix indentation and linebreaks within js/html/css code.
-The \code{\link{uglify_minify}} function provides a more aggressive code optimizer for JavaScript.
+The \code{\link{uglify}} function provides a more powerful optimizer and
+reformatter for JavaScript.
 }
 \examples{
 test <- "function test(x,y){x=x||1;y=y||1;return x+y;}"
 cat(beautify_js(test))
-cat(uglify_compress(test))
+cat(uglify_reformat(test, beautify = TRUE))
 }
 \references{
 Documentation of js-beautify on npm: \url{https://www.npmjs.com/package/js-beautify}

@@ -7,5 +7,5 @@ ct <- new_context()
   ct$source(system.file("lib/uglify.js", package = pkgname))
   ct$source(system.file("lib/jade.js", package = pkgname))
   ct$source(system.file("lib/minimist.js", package = pkgname))
-  ct$source(system.file("lib/uglifyjs2-browser-minify.js", package = pkgname))
+  ct$source(system.file("lib/custom.js", package = pkgname))
 }

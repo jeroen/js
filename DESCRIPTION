@@ -6,5 +6,5 @@ Date: 2015-01-09
 Author: Jeroen Ooms
 Maintainer: Jeroen Ooms <jeroen.ooms@stat.ucla.edu>
 Description: A set of utility functions for working with JavaScript.
-License: MIT + LICENSE
+License: MIT + file LICENSE
 Imports: V8

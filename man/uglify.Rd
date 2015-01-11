@@ -2,18 +2,21 @@
 % Please edit documentation in R/uglify.R
 \name{uglify}
 \alias{uglify}
-\alias{uglify_compress}
-\alias{uglify_parse}
+\alias{uglify_optimize}
+\alias{uglify_reformat}
 \title{Uglify or Prettify JavaScript}
 \usage{
-uglify_parse(text)
+uglify_reformat(text, beautify = FALSE, ...)
 
-uglify_compress(text, opts = list())
+uglify_optimize(text, ...)
 }
 \arguments{
 \item{text}{a character vector with JavaScript code}
 
-\item{opts}{a list of options passed to the compressor.}
+\item{beautify}{prettify (instead of minify) code}
+
+\item{...}{additional arguments for the \href{http://lisperator.net/uglifyjs/compress}{optimizer}
+or \href{http://lisperator.net/uglifyjs/codegen}{generator}.}
 }
 \description{
 \href{https://www.npmjs.com/package/uglify-js}{UglifyJS} is a JavaScript
@@ -22,10 +25,10 @@ to automate working with JavaScript code.
 }
 \examples{
 code <- "function test(x, y){ x = x || 1; y = y || 1; return x*y;}"
-uglify_compress(code, list(warnings = TRUE))
-
-# Get the full AST.
-code <- "function sum(x, y){ return x + y;}"
-ast <- uglify_parse(code)
+cat(uglify_optimize(code))
+cat(uglify_reformat(code, beautify = TRUE, indent_level = 2))
+}
+\references{
+UglifyJS2 Documentation: \url{http://lisperator.net/uglifyjs/}.
 }
 

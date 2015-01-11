@@ -1,7 +1,8 @@
 #' Beautify html/css/js
 #'
 #' A set of functions to fix indentation and linebreaks within js/html/css code.
-#' The \code{\link{uglify_minify}} function provides a more aggressive code optimizer for JavaScript.
+#' The \code{\link{uglify}} function provides a more powerful optimizer and
+#' reformatter for JavaScript.
 #'
 #' @param text string with html, css or javascript code.
 #' @param indent_size number of spaces to indent.
@@ -12,7 +13,7 @@
 #' @export
 #' @examples test <- "function test(x,y){x=x||1;y=y||1;return x+y;}"
 #' cat(beautify_js(test))
-#' cat(uglify_compress(test))
+#' cat(uglify_reformat(test, beautify = TRUE))
 beautify_js <- function(text, indent_size = 4, ...){
   text <- paste(text, collapse = "\n")
   opts <- list(...)
