@@ -1,4 +1,4 @@
-#' Uglify or Prettify JavaScript
+#' Compress and Reformat JavaScript Code
 #'
 #' \href{https://www.npmjs.com/package/uglify-js}{UglifyJS} is a JavaScript
 #' compressor/minifier written in JavaScript. It also contains tools that allow one
@@ -17,8 +17,8 @@
 #' cat(uglify_reformat(code, beautify = TRUE, indent_level = 2))
 uglify_reformat <- function(text, beautify = FALSE, ...){
   text <- paste(text, collapse = "\n")
-  stopifnot(ct$validate(text))
-  opts <- list(...);
+  validate_js(text)
+  opts <- list(...)
   opts$beautify = beautify;
   ct$call("UglifyJS.reformat", text, opts)
 }
@@ -27,7 +27,7 @@ uglify_reformat <- function(text, beautify = FALSE, ...){
 #' @export
 uglify_optimize <- function(text, ...){
   text <- paste(text, collapse = "\n")
-  stopifnot(ct$validate(text))
+  validate_js(text)
   opts <- list(...)
   ct$call("UglifyJS.optimize", text, opts)
 }

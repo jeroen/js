@@ -4,7 +4,7 @@
 \alias{uglify}
 \alias{uglify_optimize}
 \alias{uglify_reformat}
-\title{Uglify or Prettify JavaScript}
+\title{Compress and Reformat JavaScript Code}
 \usage{
 uglify_reformat(text, beautify = FALSE, ...)
 

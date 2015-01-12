@@ -13,3 +13,8 @@ UglifyJS.reformat = function(code, opts){
   var code = ast.print(stream);
   return stream.toString();
 }
+
+jshint.run = function(a,b,c) {
+  var err = jshint.JSHINT(a,b,c);
+  return err ? null : jshint.JSHINT.errors;
+}

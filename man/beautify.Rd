@@ -22,8 +22,8 @@ beautify_css(text, indent_size = 4, ...)
 }
 \description{
 A set of functions to fix indentation and linebreaks within js/html/css code.
-The \code{\link{uglify}} function provides a more powerful optimizer and
-reformatter for JavaScript.
+Note that the \code{\link{uglify}} kit provides a more powerful optimization
+and formatting tools for JavaScript code.
 }
 \examples{
 test <- "function test(x,y){x=x||1;y=y||1;return x+y;}"

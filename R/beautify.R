@@ -1,8 +1,8 @@
 #' Beautify html/css/js
 #'
 #' A set of functions to fix indentation and linebreaks within js/html/css code.
-#' The \code{\link{uglify}} function provides a more powerful optimizer and
-#' reformatter for JavaScript.
+#' Note that the \code{\link{uglify}} kit provides a more powerful optimization
+#' and formatting tools for JavaScript code.
 #'
 #' @param text string with html, css or javascript code.
 #' @param indent_size number of spaces to indent.
