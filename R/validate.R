@@ -10,10 +10,11 @@
 #' validate_js("foo = function(x){2*x}") #TRUE
 #'
 #' # Anonymous functions in global scope are invalid
-#' validate_js("function(x){2*x}") #FALSE
+#' validate_js("function(x){2*x}", error = FALSE) #FALSE
 #'
-#' # But as argument is OK
-#' validate_js("test(function(x){2*x})") #TRUE
+#' # Use ! or () to check anonymous function syntax
+#' validate_js("!function(x){2*x}") #TRUE
+#' validate_js("(function(x){2*x})") #TRUE
 validate_js <- function(text, error = TRUE){
   res <- ct$validate(text)
   if(error && !res){

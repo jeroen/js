@@ -4,14 +4,14 @@
 \alias{jshint}
 \title{Static analysis tool for JavaScript}
 \usage{
-jshint(text, globals = NULL, ...)
+jshint(text, ..., globals = NULL)
 }
 \arguments{
 \item{text}{a string of JavaScript code}
 
-\item{globals}{a white list of global variables that are not formally defined in the source code}
-
 \item{...}{additional jshint \href{http://jshint.com/docs/options/}{configuration options}}
+
+\item{globals}{a white list of global variables that are not formally defined in the source code}
 }
 \value{
 a data frame where each row represents a jshint error or \code{NULL} if there were no errors
