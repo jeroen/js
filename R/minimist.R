@@ -7,9 +7,10 @@
 #'
 #' @export
 #' @param args a character vector with arguments
-#' @examples minimist(c("-a", "beep", "-b", "boop"))
+#' @examples minimist()
+#' minimist(c("-a", "beep", "-b", "boop"))
 #' args = c("-x", "3", "-y", "4", "-n5", "-abc", "--beep=boop", "foo", "bar", "baz")
 #' minimist(args)
-minimist <- function(args){
-  ct$call("minimist", args)
+minimist <- function(args = commandArgs()){
+  ct$call("minimist", as.list(args))
 }

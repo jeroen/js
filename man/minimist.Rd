@@ -4,7 +4,7 @@
 \alias{minimist}
 \title{Parse argument options}
 \usage{
-minimist(args)
+minimist(args = commandArgs())
 }
 \arguments{
 \item{args}{a character vector with arguments}
@@ -17,6 +17,7 @@ decoration.
 Parses a vector of strings (e.g. from \code{\link{commandArgs}}) into the proper key/value list.
 }
 \examples{
+minimist()
 minimist(c("-a", "beep", "-b", "boop"))
 args = c("-x", "3", "-y", "4", "-n5", "-abc", "--beep=boop", "foo", "bar", "baz")
 minimist(args)
