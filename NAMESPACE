@@ -3,6 +3,7 @@
 export(beautify_css)
 export(beautify_html)
 export(beautify_js)
+export(is_js_function)
 export(jade)
 export(jshint)
 export(minimist)
