@@ -1,12 +1,13 @@
 Package: js
 Type: Package
-Title: Tools for Working with JavaScript and HTML in R
+Title: Tools for Working with JavaScript in R
 Version: 0.1
 Date: 2015-01-09
 Author: Jeroen Ooms
 Maintainer: Jeroen Ooms <jeroen.ooms@stat.ucla.edu>
-Description: A set of utility functions for working with JavaScript.
+Description: A set of utility functions for working with JavaScript in R.
+    Includes tools to validate, reformat, optimize and analyze JavaScript code.
 License: MIT + file LICENSE
 URL: https://github.com/jeroenooms/js
 BugReports: https://github.com/jeroenooms/js/issues
-Imports: V8 (>= 0.4)
+Imports: V8 (>= 0.5)

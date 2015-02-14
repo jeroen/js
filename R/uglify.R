@@ -17,7 +17,7 @@
 #' cat(uglify_reformat(code, beautify = TRUE, indent_level = 2))
 uglify_reformat <- function(text, beautify = FALSE, ...){
   text <- paste(text, collapse = "\n")
-  validate_js(text)
+  js_validate_script(text)
   opts <- list(...)
   opts$beautify = beautify;
   ct$call("UglifyJS.reformat", text, opts)
@@ -27,7 +27,7 @@ uglify_reformat <- function(text, beautify = FALSE, ...){
 #' @export
 uglify_optimize <- function(text, ...){
   text <- paste(text, collapse = "\n")
-  validate_js(text)
+  js_validate_script(text)
   opts <- list(...)
   ct$call("UglifyJS.optimize", text, opts)
 }
