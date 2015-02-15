@@ -6,8 +6,12 @@ Date: 2015-01-09
 Author: Jeroen Ooms
 Maintainer: Jeroen Ooms <jeroen.ooms@stat.ucla.edu>
 Description: A set of utility functions for working with JavaScript in R.
-    Includes tools to validate, reformat, optimize and analyze JavaScript code.
+    It currently includes functions to validate, reformat, optimize and
+    analyze JavaScript code.
 License: MIT + file LICENSE
 URL: https://github.com/jeroenooms/js
 BugReports: https://github.com/jeroenooms/js/issues
+VignetteBuilder: knitr
 Imports: V8 (>= 0.5)
+Suggests:
+    knitr

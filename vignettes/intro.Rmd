@@ -1,0 +1,100 @@
+---
+title: "Working with  JavaScript in R"
+author: "Jeroen Ooms"
+date: "`r Sys.Date()`"
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Working with JavaScript in R}
+  \usepackage[utf8]{inputenc} 
+output:
+  knitr:::html_vignette:
+    toc: yes
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(comment = "")
+options(width=100L)
+library(js)
+```
+
+## What is JS?
+
+The js package implements bindings to several popular JavaScript libraries for validating, reformating, optimizing and analyzing JavaScript code. It builds on the [V8 package](http://cran.r-project.org/web/packages/V8/vignettes/v8_intro.html) (a fully standalone JavaScript engine in R) to call out to these libraries. 
+
+## Syntax Validation
+
+Several R packages allow the user to supply JavaScript code to be used as callback function or configuration object within a visualization or web application. By validating in R that the JavaScript code is syntactically correct and of the right type before actually inserting it in the HTML, we can avoid many annoying bugs. 
+
+The `js_typeof` function simply calls the `typeof` operator on the given code. If the code is syntactically invalid, a SyntaxError will be raised.
+
+```{r}
+callback <- 'function(x, y){ 
+  var z = x*y ;
+  return z;
+}'
+js_typeof(callback)
+```
+
+Same for objects:
+
+```{r}
+conf <- '{
+  foo : function (){},
+  bar : 123
+}'
+js_typeof(conf)
+```
+
+Catch JavaScript typos:
+
+```{r error=TRUE, purl = FALSE}
+js_typeof('function(x,y){return x + y}}')
+```
+
+## Script Validation
+
+A JavaScript program typically consists of script with a collection of JavaScript statements. The `js_validate_script` function can be used to validate an entire script. 
+
+```{r}
+jscode <- readLines(system.file("js/uglify.min.js", package="js"), warn = FALSE)
+js_validate_script(jscode)
+```
+
+Note that JavaScript does not allow for defining anonymous functions in the global scope:
+
+```{r}
+js_validate_script('function(x, y){return x + y}', error = FALSE)
+```
+
+To validate individual functions or objects, use the `js_typeof` function. 
+
+## Uglify: reformatting and optimization
+
+One of the most popular and powerful libraries for working with JavaScript code is [uglify-js](https://www.npmjs.com/package/uglify-js). This package provides an extensive toolkit for manipulating the syntax tree of a piece of JavaScript code.
+
+The `uglify_reformat` function parses a JavaScript code and then feeds it to the [uglify code generator](http://lisperator.net/uglifyjs/codegen) which converts it back to a JavaScript text, with custom formatting options. This is nice for fixing whitespace, semicolons, etc.
+
+```{r}
+code <- "function test(x, y){ x = x || 1; y = y || 1; return x*y;}"
+cat(uglify_reformat(code, beautify = TRUE, indent_level = 2))
+```
+
+However the more impressive part of uglify-js is the [compressor](http://lisperator.net/uglifyjs/compress) which refactors the entire syntax tree, effectively rewriting your code into a more compact but equivalent program. The `uglify_optimize` function in R is a simple wrapper which parses JavaScript and then feeds it to the compressor.
+
+```{r}
+cat(code)
+cat(uglify_optimize(code))
+```
+
+You can pass [compressor options](http://lisperator.net/uglifyjs/compress) to `uglify_optimize` to control the various uglify optimization techniques.
+
+## JSHint: code analysis
+
+JSHint will automatically detect errors and potential problems in JavaScript code. The `jshint` function is R will return a data frame where each row is a problem detected by the library (type, line and reason of error): 
+
+```{r}
+code <- "var foo = 123"
+jshint(code)
+```
+
+JSHint has many [configuration options](http://jshint.com/docs/options/) to control which types of code propblems it will report on. 
