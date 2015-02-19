@@ -1,7 +1,7 @@
 Package: js
 Type: Package
 Title: Tools for Working with JavaScript in R
-Version: 0.1
+Version: 0.1.99
 Date: 2015-02-15
 Author: Jeroen Ooms
 Maintainer: Jeroen Ooms <jeroen.ooms@stat.ucla.edu>
