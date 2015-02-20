@@ -5,12 +5,12 @@
 \alias{coffee_compile}
 \title{Coffee Script}
 \usage{
-coffee_compile(code, opts = list())
+coffee_compile(code, ...)
 }
 \arguments{
 \item{code}{a string with JavaScript code}
 
-\item{opts}{options passed to the compiler}
+\item{...}{additional options passed to the compiler}
 }
 \description{
 Compiles coffee script into JavaScript.
