@@ -16,6 +16,11 @@ coffee_compile(code, ...)
 Compiles coffee script into JavaScript.
 }
 \examples{
+# Hello world
+coffee_compile("square = (x) -> x * x")
+coffee_compile("square = (x) -> x * x", bare = TRUE)
+
+# Simple script
 demo <- readLines(system.file("example/demo.coffee", package = "js"))
 js <- coffee_compile(demo)
 cat(js)
