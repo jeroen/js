@@ -25,7 +25,7 @@ The js package implements bindings to several popular JavaScript libraries for v
 
 Several R packages allow the user to supply JavaScript code to be used as callback function or configuration object within a visualization or web application. By validating in R that the JavaScript code is syntactically correct and of the right type before actually inserting it in the HTML, we can avoid many annoying bugs. 
 
-The `js_typeof` function simply calls the `typeof` operator on the given code. If the code is syntactically invalid, a SyntaxError will be raised.
+The `js_typeof` function simply calls the `typeof` operator on the given code. If the code is invalid, a SyntaxError will be raised.
 
 ```{r}
 callback <- 'function(x, y){ 
@@ -68,18 +68,43 @@ js_validate_script('function(x, y){return x + y}', error = FALSE)
 
 To validate individual functions or objects, use the `js_typeof` function. 
 
-## Uglify: reformatting and optimization
+## Compiling CoffeeScript
 
-One of the most popular and powerful libraries for working with JavaScript code is [uglify-js](https://www.npmjs.com/package/uglify-js). This package provides an extensive toolkit for manipulating the syntax tree of a piece of JavaScript code.
+[CoffeeScript](http://coffeescript.org/) is a little language that compiles into JavaScript. It is an attempt to expose the good parts of JavaScript in a simple way. The `coffee_compile` function binds to the coffee script compiler.
 
-The `uglify_reformat` function parses a JavaScript code and then feeds it to the [uglify code generator](http://lisperator.net/uglifyjs/codegen) which converts it back to a JavaScript text, with custom formatting options. This is nice for fixing whitespace, semicolons, etc.
+```{r}
+# Hello world
+cat(coffee_compile("square = (x) -> x * x"))
+cat(coffee_compile("square = (x) -> x * x", bare = TRUE))
+```
+
+
+The golden rule of CoffeeScript is: *"It's just JavaScript"*. The code compiles one-to-one into the equivalent JS, and there is no interpretation at runtime. You can use any existing JavaScript library seamlessly from CoffeeScript (and vice-versa). The compiled output is readable and pretty-printed, will work in every JavaScript runtime, and tends to run as fast or faster than the equivalent handwritten JavaScript.
+
+```{r}
+# Simple script
+demo <- readLines(system.file("example/demo.coffee", package = "js"))
+cat(demo, sep = "\n")
+js <- coffee_compile(demo)
+cat(js)
+cat(uglify_optimize(js))
+```
+
+
+## Uglify: reformatting
+
+One of the most popular and powerful libraries for working with JavaScript code is [uglify-js](https://www.npmjs.com/package/uglify-js). Uglify provides an extensive toolkit for manipulating the syntax tree of a piece of JavaScript code.
+
+The `uglify_reformat` binding parses a string with code and then feeds it to the [uglify code generator](http://lisperator.net/uglifyjs/codegen) which converts it back to JavaScript text, with custom formatting options. This is nice for fixing whitespace, semicolons, etc.
 
 ```{r}
 code <- "function test(x, y){ x = x || 1; y = y || 1; return x*y;}"
 cat(uglify_reformat(code, beautify = TRUE, indent_level = 2))
 ```
 
-However the more impressive part of uglify-js is the [compressor](http://lisperator.net/uglifyjs/compress) which refactors the entire syntax tree, effectively rewriting your code into a more compact but equivalent program. The `uglify_optimize` function in R is a simple wrapper which parses JavaScript and then feeds it to the compressor.
+## Uglify: optimization
+
+The more impressive part of uglify-js is the [compressor](http://lisperator.net/uglifyjs/compress) which refactors the entire syntax tree, effectively rewriting your code into a more compact but equivalent program. The `uglify_optimize` function in R is a simple wrapper which parses code and then feeds it to the compressor.
 
 ```{r}
 cat(code)
