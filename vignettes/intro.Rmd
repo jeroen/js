@@ -19,7 +19,7 @@ library(js)
 
 ## What is JS?
 
-The js package implements bindings to several popular JavaScript libraries for validating, reformating, optimizing and analyzing JavaScript code. It builds on the [V8 package](http://cran.r-project.org/web/packages/V8/vignettes/v8_intro.html) (a fully standalone JavaScript engine in R) to call out to these libraries. 
+The js package implements bindings to several popular JavaScript libraries for validating, reformatting, optimizing and analyzing JavaScript code. It builds on the [V8 package](http://cran.r-project.org/web/packages/V8/vignettes/v8_intro.html) (a fully standalone JavaScript engine in R) to call out to these libraries. 
 
 ## Syntax Validation
 
