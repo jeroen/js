@@ -3,3 +3,4 @@
 .Rhistory
 js.Rproj
 .V8history
+^appveyor\.yml$
