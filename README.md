@@ -2,12 +2,12 @@
 
 ##### *Tools for Working with JavaScript in R*
 
-[![Build Status](https://travis-ci.org/jeroenooms/js.svg?branch=master)](https://travis-ci.org/jeroenooms/js)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jeroenooms/js?branch=master&svg=true)](https://ci.appveyor.com/project/jeroenooms/js)
-[![Coverage Status](https://codecov.io/github/jeroenooms/js/coverage.svg?branch=master)](https://codecov.io/github/jeroenooms/js?branch=master)
+[![Build Status](https://travis-ci.org/jeroen/js.svg?branch=master)](https://travis-ci.org/jeroen/js)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jeroen/js?branch=master&svg=true)](https://ci.appveyor.com/project/jeroen/js)
+[![Coverage Status](https://codecov.io/github/jeroen/js/coverage.svg?branch=master)](https://codecov.io/github/jeroen/js?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/js)](http://cran.r-project.org/package=js)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/js)](http://cran.r-project.org/web/packages/js/index.html)
-[![Github Stars](https://img.shields.io/github/stars/jeroenooms/js.svg?style=social&label=Github)](https://github.com/jeroenooms/js)
+[![Github Stars](https://img.shields.io/github/stars/jeroen/js.svg?style=social&label=Github)](https://github.com/jeroen/js)
 
 > A set of utility functions for working with JavaScript in R.
   Currently includes functions to compile, validate, reformat, optimize
@@ -56,4 +56,4 @@ Binary packages for __OS-X__ or __Windows__ can be installed directly from CRAN:
 install.packages("js")
 ```
 
-To install on Linux have a look at [V8 installation instructions](https://github.com/jeroenooms/v8#installation).
+To install on Linux have a look at [V8 installation instructions](https://github.com/jeroen/v8#installation).
