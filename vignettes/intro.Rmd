@@ -4,6 +4,7 @@ author: "Jeroen Ooms"
 date: "`r Sys.Date()`"
 output:
   html_document:
+    highlight : "kate"
     fig_caption: false
     toc: true
     toc_float:
@@ -33,7 +34,7 @@ Several R packages allow the user to supply JavaScript code to be used as callba
 The `js_typeof` function simply calls the `typeof` operator on the given code. If the code is invalid, a SyntaxError will be raised.
 
 ```{r}
-callback <- 'function(x, y){ 
+callback <- 'function test(x, y){ 
   var z = x*y ;
   return z;
 }'
@@ -79,9 +80,8 @@ Esprima is a high performance, standard-compliant ECMAScript parser. It has full
 
 
 ```{r}
-code <- "function test(x, y){ x = x || 1; y = y || 1; return x*y;}"
-esprima_tokenize(code)
-esprima_parse(code)
+esprima_tokenize(callback)
+esprima_parse(callback)
 ```
 
 ## Compiling CoffeeScript
