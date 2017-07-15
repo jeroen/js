@@ -1,14 +1,19 @@
 ---
-title: "Working with  JavaScript in R"
+title: "Working with JavaScript Syntax in R"
 author: "Jeroen Ooms"
 date: "`r Sys.Date()`"
-vignette: >
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{Working with JavaScript in R}
-  \usepackage[utf8]{inputenc} 
 output:
-  knitr:::html_vignette:
-    toc: yes
+  html_document:
+    fig_caption: false
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 3
+vignette: >
+  %\VignetteIndexEntry{Working with JavaScript Syntax in R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, echo = FALSE, message = FALSE}
@@ -17,7 +22,7 @@ options(width=100L)
 library(js)
 ```
 
-## What is JS?
+## What is the 'js' package?
 
 The js package implements bindings to several popular JavaScript libraries for validating, reformatting, optimizing and analyzing JavaScript code. It builds on the [V8 package](http://cran.r-project.org/web/packages/V8/vignettes/v8_intro.html) (a fully standalone JavaScript engine in R) to call out to these libraries. 
 
@@ -123,3 +128,14 @@ jshint(code)
 ```
 
 JSHint has many [configuration options](http://jshint.com/docs/options/) to control which types of code propblems it will report on. 
+
+## ESprima: parsing and tokenizing
+
+Esprima is a high performance, standard-compliant ECMAScript parser. It has full support for ECMAScript 2017 and returns a sensible syntax tree format as standardized by ESTree project.
+
+
+```{r}
+code <- "function test(x, y){ x = x || 1; y = y || 1; return x*y;}"
+esprima_tokenize(code)
+esprima_parse(code)
+```

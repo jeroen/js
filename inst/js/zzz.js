@@ -20,5 +20,5 @@ jshint.run = function(a,b,c) {
 };
 
 esprima.parse_to_json = function(str, config){
-  return JSON.stringify(esprima.parseScript(str, config));
+  return JSON.stringify(esprima.parseScript(str, config), null, 2);
 };
