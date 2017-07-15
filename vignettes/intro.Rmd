@@ -1,7 +1,6 @@
 ---
 title: "Working with JavaScript Syntax in R"
 author: "Jeroen Ooms"
-date: "`r Sys.Date()`"
 output:
   html_document:
     highlight : "kate"
@@ -23,7 +22,6 @@ options(width=100L)
 library(js)
 ```
 
-## What is the 'js' package?
 
 The js package implements bindings to several popular JavaScript libraries for validating, reformatting, optimizing and analyzing JavaScript code. It builds on the [V8 package](https://cran.r-project.org/package=V8/vignettes/v8_intro.html) (a fully standalone JavaScript engine in R) to call out to these libraries. 
 
