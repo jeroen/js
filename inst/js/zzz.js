@@ -18,3 +18,7 @@ jshint.run = function(a,b,c) {
   var err = jshint.JSHINT(a,b,c);
   return err ? null : jshint.JSHINT.errors;
 }
+
+esprima.parse_to_json = function(str, config){
+  return JSON.stringify(esprima.parseScript(str, config));
+}

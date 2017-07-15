@@ -1,3 +1,6 @@
+1.0
+ - Add wrappers for esprima parser and tokenizer
+
 0.2
  - Add coffee script
 
