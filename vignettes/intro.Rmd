@@ -73,6 +73,17 @@ js_validate_script('function(x, y){return x + y}', error = FALSE)
 
 To validate individual functions or objects, use the `js_typeof` function. 
 
+## ESprima: Parsing
+
+Esprima is a high performance, standard-compliant ECMAScript parser. It has full support for ECMAScript 2017 and returns a sensible syntax tree format as standardized by ESTree project.
+
+
+```{r}
+code <- "function test(x, y){ x = x || 1; y = y || 1; return x*y;}"
+esprima_tokenize(code)
+esprima_parse(code)
+```
+
 ## Compiling CoffeeScript
 
 [CoffeeScript](http://coffeescript.org/) is a little language that compiles into JavaScript. It is an attempt to expose the good parts of JavaScript in a simple way. The `coffee_compile` function binds to the coffee script compiler.
@@ -127,15 +138,4 @@ code <- "var foo = 123"
 jshint(code)
 ```
 
-JSHint has many [configuration options](http://jshint.com/docs/options/) to control which types of code propblems it will report on. 
-
-## ESprima: parsing and tokenizing
-
-Esprima is a high performance, standard-compliant ECMAScript parser. It has full support for ECMAScript 2017 and returns a sensible syntax tree format as standardized by ESTree project.
-
-
-```{r}
-code <- "function test(x, y){ x = x || 1; y = y || 1; return x*y;}"
-esprima_tokenize(code)
-esprima_parse(code)
-```
+JSHint has many [configuration options](http://jshint.com/docs/options/) to control which types of code propblems it will report on.
