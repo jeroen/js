@@ -5,8 +5,8 @@ Version: 0.9000
 Author: Jeroen Ooms
 Maintainer: Jeroen Ooms <jeroen@berkeley.edu>
 Description: A set of utilities for working with JavaScript syntax in R.
-    Includes functions to parse, tokenize, compile, validate, reformat, 
-    optimize and analyze JavaScript code.
+    Includes tools to parse, tokenize, compile, validate, reformat, optimize 
+    and analyze JavaScript code.
 License: MIT + file LICENSE
 URL: https://github.com/jeroen/js
 BugReports: https://github.com/jeroen/js/issues
