@@ -1,3 +1,7 @@
+1.1
+ - Make parameters to ESprima explicit
+ - Do not validate syntax before tokenizing or parsing with ESprima
+
 1.0
  - Add wrappers for esprima parser and tokenizer
 

@@ -6,14 +6,25 @@
 \alias{esprima_parse}
 \title{JavaScrip Syntax Tree}
 \usage{
-esprima_tokenize(text, ...)
+esprima_tokenize(text, range = FALSE, loc = FALSE, comment = FALSE)
 
-esprima_parse(text, ...)
+esprima_parse(text, jsx = FALSE, range = FALSE, loc = FALSE,
+  tolerant = FALSE, tokens = FALSE, comment = FALSE)
 }
 \arguments{
 \item{text}{a character vector with JavaScript code}
 
-\item{...}{additional arguments for the \href{http://esprima.readthedocs.io/en/4.0/lexical-analysis.html}{tokenizer}}
+\item{range}{Annotate each token with its zero-based start and end location}
+
+\item{loc}{Annotate each token with its column and row-based location}
+
+\item{comment}{Include every line and block comment in the output}
+
+\item{jsx}{Support JSX syntax}
+
+\item{tolerant}{Tolerate a few cases of syntax errors}
+
+\item{tokens}{Collect every token}
 }
 \description{
 \href{https://www.npmjs.com/package/esprima}{Esprima} is a high performance, standard-compliant

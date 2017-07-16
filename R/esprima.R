@@ -12,23 +12,27 @@
 #' @name esprima
 #' @export
 #' @param text a character vector with JavaScript code
-#' @param ... additional arguments for the \href{http://esprima.readthedocs.io/en/4.0/lexical-analysis.html}{tokenizer}
+#' @param range Annotate each token with its zero-based start and end location
+#' @param loc Annotate each token with its column and row-based location
+#' @param comment Include every line and block comment in the output
 #' @references Esprima documentation: \url{http://esprima.readthedocs.io/en/4.0/}.
 #' @examples code <- "function test(x, y){ x = x || 1; y = y || 1; return x*y;}"
 #' esprima_tokenize(code)
 #' esprima_parse(code)
-esprima_tokenize <- function(text, ...){
+esprima_tokenize <- function(text, range = FALSE, loc = FALSE, comment = FALSE){
   text <- paste(text, collapse = "\n")
-  js_validate_script(text)
-  opts <- list(...)
+  opts <- list(range = range, loc = loc, comment = comment)
   ct$call("esprima.tokenize", text, opts)
 }
 
 #' @export
 #' @rdname esprima
-esprima_parse <- function(text, ...){
+#' @param jsx Support JSX syntax
+#' @param tolerant Tolerate a few cases of syntax errors
+#' @param tokens Collect every token
+esprima_parse <- function(text, jsx = FALSE, range = FALSE, loc = FALSE, tolerant = FALSE,
+                          tokens = FALSE, comment = FALSE){
   text <- paste(text, collapse = "\n")
-  js_validate_script(text)
-  opts <- list(...)
+  opts <- list(jsx = jsx, range = range, loc = loc, tolerant = tolerant, tokens = tokens, comment = comment)
   structure(ct$call("esprima.parse_to_json", text, opts), class = c("json", "character"))
 }
