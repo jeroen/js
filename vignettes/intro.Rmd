@@ -136,4 +136,4 @@ code <- "var foo = 123"
 jshint(code)
 ```
 
-JSHint has many [configuration options](http://jshint.com/docs/options/) to control which types of code propblems it will report on.
+JSHint has many [configuration options](http://jshint.com/docs/options/) to control which types of code problems it will report on.
