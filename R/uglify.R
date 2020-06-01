@@ -31,3 +31,14 @@ uglify_optimize <- function(text, ...){
   opts <- list(...)
   ct$call("UglifyJS.optimize", text, opts)
 }
+
+#' @rdname uglify
+#' @export
+uglify_files <- function(files, ...){
+  text <- character()
+  for (f in files)
+    text <- c(text, paste(readLines(f), collapse = "\n"))
+  js_validate_script(paste(text, collapse = "\n"))
+  opts <- list(...)
+  ct$call("UglifyJS.optimizeFiles", text, files, opts)
+}

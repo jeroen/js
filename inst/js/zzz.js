@@ -7,6 +7,16 @@ UglifyJS.optimize = function(code, opts){
   return ast.print_to_string();
 };
 
+UglifyJS.optimizeFiles = function(code, filenames, opts){
+  var ast = null;
+  for (var i = 0; i < code.length; i++)
+    ast = UglifyJS.parse(code[i], {filename : filenames[i], toplevel : ast});
+  var compressor = UglifyJS.Compressor(opts);
+  ast.figure_out_scope();
+  ast = ast.transform(compressor);
+  return ast.print_to_string();
+}
+
 UglifyJS.reformat = function(code, opts){
   var ast = UglifyJS.parse(code);
   var stream = UglifyJS.OutputStream(opts);

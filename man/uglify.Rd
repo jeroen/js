@@ -4,16 +4,21 @@
 \alias{uglify}
 \alias{uglify_reformat}
 \alias{uglify_optimize}
+\alias{uglify_files}
 \title{Compress and Reformat JavaScript Code}
 \usage{
 uglify_reformat(text, beautify = FALSE, ...)
 
 uglify_optimize(text, ...)
+
+uglify_files(files, ...)
 }
 \arguments{
 \item{text}{a character vector with JavaScript code}
 
 \item{beautify}{prettify (instead of minify) code}
+
+\item{files}{a character vector of filenames}
 
 \item{...}{additional arguments for the \href{http://lisperator.net/uglifyjs/compress}{optimizer}
 or \href{http://lisperator.net/uglifyjs/codegen}{generator}.}
