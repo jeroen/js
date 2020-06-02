@@ -35,10 +35,14 @@ uglify_optimize <- function(text, ...){
 #' @rdname uglify
 #' @export
 uglify_files <- function(files, ...){
-  text <- character()
-  for (f in files)
-    text <- c(text, paste(readLines(f), collapse = "\n"))
-  js_validate_script(paste(text, collapse = "\n"))
+  codelist <- lapply(files, function(f){
+    list(
+      file = basename(f),
+      code = rawToChar(readBin(f, raw(), file.info(f)$size))
+    )
+  })
+  fulltext <- vapply(codelist, `[[`,  character(1), 'code')
+  js_validate_script(paste(fulltext, collapse = "\n"))
   opts <- list(...)
-  ct$call("UglifyJS.optimizeFiles", text, files, opts)
+  ct$call("UglifyJS.optimizeFiles", codelist, opts)
 }
