@@ -6,28 +6,12 @@ fortran: false
 matrix:
   include:
     - os: linux
-      dist: trusty
-      env: R_CODECOV=true
+      addons:
+        apt:
+          packages: libv8-dev
+    - os: linux
+      addons:
+        apt:
+          packages: libnode-dev
     - os: osx
-      osx_image: xcode9.3
-    - os: osx
-      osx_image: xcode7.3
-
-addons:
-  apt:
-    packages:
-      - libv8-dev
-
-r_github_packages:
-  - jimhester/covr
-
-warnings_are_errors: true
-#r_check_revdep: true
-
-notifications:
-  email:
-    on_success: change
-    on_failure: change
-
-after_success:
-  - if [[ "${R_CODECOV}" ]]; then R -e 'covr::codecov(type = "examples")'; fi
+      osx_image: xcode10.1
