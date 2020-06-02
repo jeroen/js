@@ -31,3 +31,18 @@ uglify_optimize <- function(text, ...){
   opts <- list(...)
   ct$call("UglifyJS.optimize", text, opts)
 }
+
+#' @rdname uglify
+#' @export
+uglify_files <- function(files, ...){
+  codelist <- lapply(files, function(f){
+    list(
+      file = basename(f),
+      code = rawToChar(readBin(f, raw(), file.info(f)$size))
+    )
+  })
+  fulltext <- vapply(codelist, `[[`,  character(1), 'code')
+  js_validate_script(paste(fulltext, collapse = "\n"))
+  opts <- list(...)
+  ct$call("UglifyJS.optimizeFiles", codelist, opts)
+}

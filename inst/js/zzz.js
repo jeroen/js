@@ -1,6 +1,17 @@
-/* Extra functions by Jeroen */
+/* Wrapper functions for R */
 UglifyJS.optimize = function(code, opts){
   var ast = UglifyJS.parse(code);
+  var compressor = UglifyJS.Compressor(opts);
+  ast.figure_out_scope();
+  ast = ast.transform(compressor);
+  return ast.print_to_string();
+};
+
+UglifyJS.optimizeFiles = function(codelist, opts){
+  var ast = null;
+  codelist.forEach(function(x){
+    ast = UglifyJS.parse(x.code, { filename: x.file, toplevel: ast });
+  });
   var compressor = UglifyJS.Compressor(opts);
   ast.figure_out_scope();
   ast = ast.transform(compressor);
