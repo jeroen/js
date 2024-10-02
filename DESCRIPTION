@@ -1,7 +1,7 @@
 Package: js
 Type: Package
 Title: Tools for Working with JavaScript in R
-Version: 1.2
+Version: 1.2.1
 Authors@R: person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroenooms@gmail.com",
     comment = c(ORCID = "0000-0002-4035-0289"))
 Description: A set of utilities for working with JavaScript syntax in R.
