@@ -12,7 +12,7 @@ js_validate_script(text, error = TRUE)
 \item{error}{raise error on invalid code}
 }
 \description{
-Simple wrapper for \code{ct$validate} in \code{\link{V8}}.
+Simple wrapper for \code{ct$validate} in V8.
 Tests if code constitutes a syntactically valid JS script.
 }
 \examples{

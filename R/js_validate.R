@@ -1,6 +1,6 @@
 #' Validate JavaScript
 #'
-#' Simple wrapper for \code{ct$validate} in \code{\link{V8}}.
+#' Simple wrapper for \code{ct$validate} in V8.
 #' Tests if code constitutes a syntactically valid JS script.
 #'
 #' @export
