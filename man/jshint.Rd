@@ -9,7 +9,7 @@ jshint(text, ..., globals = NULL)
 \arguments{
 \item{text}{a string of JavaScript code}
 
-\item{...}{additional jshint \href{http://jshint.com/docs/options/}{configuration options}}
+\item{...}{additional jshint \href{https://jshint.com/docs/options/}{configuration options}}
 
 \item{globals}{a white list of global variables that are not formally defined in the source code}
 }

@@ -20,8 +20,8 @@ uglify_files(files, ...)
 
 \item{files}{a character vector of filenames}
 
-\item{...}{additional arguments for the \href{http://lisperator.net/uglifyjs/compress}{optimizer}
-or \href{http://lisperator.net/uglifyjs/codegen}{generator}.}
+\item{...}{additional arguments for the \href{https://lisperator.net/uglifyjs/compress}{optimizer}
+or \href{https://lisperator.net/uglifyjs/codegen}{generator}.}
 }
 \description{
 \href{https://www.npmjs.com/package/uglify-js}{UglifyJS} is a JavaScript
@@ -34,5 +34,5 @@ cat(uglify_optimize(code))
 cat(uglify_reformat(code, beautify = TRUE, indent_level = 2))
 }
 \references{
-UglifyJS2 Documentation: \url{http://lisperator.net/uglifyjs/}.
+UglifyJS2 Documentation: \url{https://lisperator.net/uglifyjs/}.
 }

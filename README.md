@@ -2,9 +2,9 @@
 
 ##### *Tools for Working with JavaScript in R*
 
-[![Build Status](https://travis-ci.org/jeroen/js.svg?branch=master)](https://travis-ci.org/jeroen/js)
+[![Build Status](https://app.travis-ci.com/jeroen/js.svg?branch=master)](https://app.travis-ci.com/jeroen/js)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jeroen/js?branch=master&svg=true)](https://ci.appveyor.com/project/jeroen/js)
-[![Coverage Status](https://codecov.io/github/jeroen/js/coverage.svg?branch=master)](https://codecov.io/github/jeroen/js?branch=master)
+[![Coverage Status](https://codecov.io/github/jeroen/js/coverage.svg?branch=master)](https://app.codecov.io/github/jeroen/js?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/js)](http://cran.r-project.org/package=js)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/js)](http://cran.r-project.org/web/packages/js/index.html)
 [![Github Stars](https://img.shields.io/github/stars/jeroen/js.svg?style=social&label=Github)](https://github.com/jeroen/js)
@@ -338,7 +338,7 @@ cat(uglify_optimize(js))
 
 One of the most popular and powerful libraries for working with JavaScript code is [uglify-js](https://www.npmjs.com/package/uglify-js). Uglify provides an extensive toolkit for manipulating the syntax tree of a piece of JavaScript code.
 
-The `uglify_reformat` binding parses a string with code and then feeds it to the [uglify code generator](http://lisperator.net/uglifyjs/codegen) which converts it back to JavaScript text, with custom formatting options. This is nice for fixing whitespace, semicolons, etc.
+The `uglify_reformat` binding parses a string with code and then feeds it to the [uglify code generator](https://lisperator.net/uglifyjs/codegen) which converts it back to JavaScript text, with custom formatting options. This is nice for fixing whitespace, semicolons, etc.
 
 
 ```r
@@ -356,7 +356,7 @@ function test(x, y) {
 
 ## Uglify: optimization
 
-The more impressive part of uglify-js is the [compressor](http://lisperator.net/uglifyjs/compress) which refactors the entire syntax tree, effectively rewriting your code into a more compact but equivalent program. The `uglify_optimize` function in R is a simple wrapper which parses code and then feeds it to the compressor.
+The more impressive part of uglify-js is the [compressor](https://lisperator.net/uglifyjs/compress) which refactors the entire syntax tree, effectively rewriting your code into a more compact but equivalent program. The `uglify_optimize` function in R is a simple wrapper which parses code and then feeds it to the compressor.
 
 
 ```r
@@ -375,7 +375,7 @@ cat(uglify_optimize(code))
 function test(x,y){return x=x||1,y=y||1,x*y}
 ```
 
-You can pass [compressor options](http://lisperator.net/uglifyjs/compress) to `uglify_optimize` to control the various uglify optimization techniques.
+You can pass [compressor options](https://lisperator.net/uglifyjs/compress) to `uglify_optimize` to control the various uglify optimization techniques.
 
 ## JSHint: code analysis
 
@@ -392,4 +392,4 @@ jshint(code)
 1 (error) Missing semicolon. W033 var foo = 123    1        14 (main) Missing semicolon.
 ```
 
-JSHint has many [configuration options](http://jshint.com/docs/options/) to control which types of code propblems it will report on.
+JSHint has many [configuration options](https://jshint.com/docs/options/) to control which types of code propblems it will report on.

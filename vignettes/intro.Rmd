@@ -109,7 +109,7 @@ cat(uglify_optimize(js))
 
 One of the most popular and powerful libraries for working with JavaScript code is [uglify-js](https://www.npmjs.com/package/uglify-js). Uglify provides an extensive toolkit for manipulating the syntax tree of a piece of JavaScript code.
 
-The `uglify_reformat` binding parses a string with code and then feeds it to the [uglify code generator](http://lisperator.net/uglifyjs/codegen) which converts it back to JavaScript text, with custom formatting options. This is nice for fixing whitespace, semicolons, etc.
+The `uglify_reformat` binding parses a string with code and then feeds it to the [uglify code generator](https://lisperator.net/uglifyjs/codegen) which converts it back to JavaScript text, with custom formatting options. This is nice for fixing whitespace, semicolons, etc.
 
 ```{r}
 code <- "function test(x, y){ x = x || 1; y = y || 1; return x*y;}"
@@ -118,14 +118,14 @@ cat(uglify_reformat(code, beautify = TRUE, indent_level = 2))
 
 ## Uglify: optimization
 
-The more impressive part of uglify-js is the [compressor](http://lisperator.net/uglifyjs/compress) which refactors the entire syntax tree, effectively rewriting your code into a more compact but equivalent program. The `uglify_optimize` function in R is a simple wrapper which parses code and then feeds it to the compressor.
+The more impressive part of uglify-js is the [compressor](https://lisperator.net/uglifyjs/compress) which refactors the entire syntax tree, effectively rewriting your code into a more compact but equivalent program. The `uglify_optimize` function in R is a simple wrapper which parses code and then feeds it to the compressor.
 
 ```{r}
 cat(code)
 cat(uglify_optimize(code))
 ```
 
-You can pass [compressor options](http://lisperator.net/uglifyjs/compress) to `uglify_optimize` to control the various uglify optimization techniques.
+You can pass [compressor options](https://lisperator.net/uglifyjs/compress) to `uglify_optimize` to control the various uglify optimization techniques.
 
 ## JSHint: code analysis
 
@@ -136,4 +136,4 @@ code <- "var foo = 123"
 jshint(code)
 ```
 
-JSHint has many [configuration options](http://jshint.com/docs/options/) to control which types of code problems it will report on.
+JSHint has many [configuration options](https://jshint.com/docs/options/) to control which types of code problems it will report on.
