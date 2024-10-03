@@ -8,7 +8,7 @@ Description: A set of utilities for working with JavaScript syntax in R.
     Includes tools to parse, tokenize, compile, validate, reformat, optimize 
     and analyze JavaScript code.
 License: MIT + file LICENSE
-URL: https://github.com/jeroen/js
+URL: https://jeroen.r-universe.dev/js
 BugReports: https://github.com/jeroen/js/issues
 VignetteBuilder: knitr
 Imports: V8 (>= 0.5)
